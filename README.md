@@ -1,6 +1,8 @@
 # Godot Export
 A workflow action to automatically export your Godot games. Supports standard and **Mono** builds!
 
+Forked from the original: https://github.com/firebelley/godot-export with extra fixes.
+
 ## Contents
 - [How it works](#how-it-works)
 - [Setting Up Export Presets](#setting-up-export-presets)
@@ -84,11 +86,11 @@ jobs:
     - name: export game
       id: export
       # Use latest version (see releases for all versions)
-      uses: firebelley/godot-export@v6.0.0
+      uses: jynus/godot-export@v6.0.1
       with:
         # Defining all the required inputs
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+        godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
         relative_project_path: ./
         archive_output: true
 
@@ -142,7 +144,7 @@ In order to configure this action to update your game's Windows exe icon, includ
 # Any other intermediate steps can go here
 
 - name: export game
-  uses: firebelley/godot-export@v6.0.0
+  uses: jynus/godot-export@v6.0.1
   with:
     # ...supply your other options here
     wine_path: ${{ steps.wine_install.outputs.WINE_PATH }} # set the wine path here which is the output of the wine_install step
